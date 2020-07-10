@@ -17,12 +17,10 @@
         }
 
         function changeText(filename) {
-            data=loadFile()
+            data=loadFile(filename)
             area = document.getElementById("text");
             area.innerText=data;
         }
-        var myStuff = loadFile("this.txt");
-        alert(myStuff);
     </script>
 </head>
 <body>
