@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>무엇</title>
+    <title>WHAT NEED?</title>
 </head>
 <body>
-    아아 테스트 잘 보입니가?
+    Gretha. 그랬다. Egothon. 이것은. Gwnihan. 그냥. Naeh. 나의. Xainkak. 생각. Eda. 이다.
+    <script>
+        function loadFile(filePath) {
+        var result = null;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", filePath, false);
+        xmlhttp.send();
+        if (xmlhttp.status==200) {
+            result = xmlhttp.responseText;
+        }
+        return result;
+        }
+
+        var myStuff = loadFile("this.txt");
+        alert(myStuff);
+    </script>
 </body>
 </html>
