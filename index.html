@@ -2,23 +2,38 @@
 <html>
 <head>
     <title>WHAT NEED?</title>
-</head>
-<body>
-    Gretha. 그랬다. Egothon. 이것은. Gwnihan. 그냥. Naeh. 나의. Xainkak. 생각. Eda. 이다.
+    <meta charset="utf-8">
     <script>
         function loadFile(filePath) {
-        var result = null;
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET", filePath, false);
-        xmlhttp.send();
-        if (xmlhttp.status==200) {
-            result = xmlhttp.responseText;
-        }
-        return result;
+            var result = null;
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", filePath+".txt", false);
+            xmlhttp.send();
+            if (xmlhttp.status==200) {
+                result = xmlhttp.responseText;
+            }
+            
+            return result;
         }
 
+        function changeText(filename) {
+            data=loadFile()
+            area = document.getElementById("text");
+            area.innerText=data;
+        }
         var myStuff = loadFile("this.txt");
         alert(myStuff);
     </script>
+</head>
+<body>
+    <header>
+        <h1><u>WhatNeed? 뭐가 필요할까?</u></h1>
+    </header>
+    <nav>
+        <script>document.write(loadFile("whatneed_txt_list"))</script>
+    </nav>
+    <p id="text">
+        Gretha. 그랬다. Egothon. 이것은. Gwnihan. 그냥. Naeh. 나의. Xainkak. 생각. Eda. 이다.
+    </p>
 </body>
 </html>
