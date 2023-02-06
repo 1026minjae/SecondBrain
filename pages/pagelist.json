@@ -1,22 +1,22 @@
 [
     {
         "Name": "Card Game",
-        "Filename": "cardgame"
+        "Filename": "cardgame.txt"
     },
     {
         "Name": "Chat Service",
-        "Filename": "chatservice"
+        "Filename": "chatservice.txt"
     },
     {
         "Name": "Tech Blog",
-        "Filename": "techblog"
+        "Filename": "techblog.txt"
     },
     {
         "Name": "To-do List",
-        "Filename": "todolist"
+        "Filename": "todolist.txt"
     },
     {
         "Name": "Video Streaming",
-        "Filename": "videostreaming"
+        "Filename": "videostreaming.txt"
     }
 ]
