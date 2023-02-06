@@ -1,0 +1,22 @@
+[
+    {
+        "Name": "Card Game",
+        "Filename": "cardgame"
+    },
+    {
+        "Name": "Chat Service",
+        "Filename": "chatservice"
+    },
+    {
+        "Name": "Tech Blog",
+        "Filename": "techblog"
+    },
+    {
+        "Name": "To-do List",
+        "Filename": "todolist"
+    },
+    {
+        "Name": "Video Streaming",
+        "Filename": "videostreaming"
+    }
+]

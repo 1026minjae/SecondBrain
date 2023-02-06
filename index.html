@@ -3,59 +3,17 @@
 <head>
     <title>WhatNeed?</title>
     <meta charset="utf-8">
-    <script src = "scripts/jquery-3.6.1.min.js"></script>
-    <script src = "scripts/page_access.js"></script>
-    <style>
-        html, body {
-            width: 100%;
-            height: 100%;
-        }
-        
-        header {
-            display: table;
-            width: 100%;
-            height: 20%;
-            max-height: 300px;
-        }
-
-        .title {
-            display: table-cell;
-            text-align: center;
-            vertical-align: middle;
-        }
-        
-        nav {
-            width: 20%;
-            height: 70%;
-            float: left;
-        }
-
-        .main {
-            width: 80%;
-            height: 70%;
-            float: right;
-        }
-
-        p {
-            padding: 2px 10px 10px 10px;
-            border-left: black solid 1px;
-        }
-    </style>
+    <script src="src/page_access.js"></script>
+    <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
     <header>
-        <div class = "title"><h1>WhatNeed? 뭐가 필요할까?</h1></div>
+        <div id="title-box">What is needed?</div>
     </header>
     <nav>
-        <button onclick="changeText('chattingservice');">Chatting Service</button>
-        <button onclick="changeText('hearthstone');">Hearthstone</button>
-        <button onclick="changeText('techblog');">Tech Blog</button>
-        <button onclick="changeText('todolist');">To-do List</button>
-        <button onclick="changeText('videostreaming');">Video Streaming</button>
-        <button onclick="changeText('whatneed');">WhatNeed</button>
     </nav>
-    <div class = "main">
-        <p id="text">
+    <div class="main-box">
+        <p id="contents">
             이곳은 메인 텍스트가 위치하는 구역입니다. 좌측 바에서 버튼을 클릭하면 해당하는 내용이 표시됩니다.
         </p>
     </div>
