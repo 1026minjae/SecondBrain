@@ -20,16 +20,15 @@ let changeText = (filename) => {
 
 let loadPageList = () => {
     var data = loadFile("pagelist.json");
-    console.log(data);
     var pagelist = JSON.parse(data);
-    console.log(pagelist);
 
     var nav = document.getElementById("btn-box");
-    nav.textContent = "";
-    for (var page in pagelist) {
+    if (nav.hasChildNodes()) nav.textContent = "";
+
+    for (var page of pagelist) {
         var btn = document.createElement("button");
-        btn.onclick = () => {changeText(page["Filename"])};
-        btn.value = page["Name"];
+        btn.innerText = page["Name"];
+        btn.setAttribute("onclick", "changeText(\"" + page["Filename"] + "\")");
         nav.appendChild(btn);
     }
 };
