@@ -5,7 +5,7 @@ async function loadGraph() {
 
     for (let file of files) {
         let content = await fetchMarkdownContent(file);
-        let links = extractLinks(content);
+        let links = extractLinks(file, content);
 
         graphData.nodes.push({ id: file, label: file.substring(file.lastIndexOf("/") + 1).replace(".md", "") });
         fileMap[file] = true;
@@ -40,17 +40,26 @@ async function fetchMarkdownContent(file) {
     }
 }
 
-function extractLinks(content) {
+function extractLinks(file, content) {
     let links = [];
+
+    /* This part specifies the regular expressions for each type of links 
+       The following types can be detected:
+       1. Wiki Link: [[Target File Name]]
+       2. Markdown Link: [Shown Text](Target File Name) 
+       
+       And currently, target file should be in same directory which the link-owning file locates. */
     let wikiLinkRegex = /\[\[([^\]]+)\]\]/g;
     let mdLinkRegex = /\[.*?\]\((.*?)\)/g;
 
+    let parentDir = file.substring(0, file.lastIndexOf("/") + 1); // including '/'
+
     let match;
     while ((match = wikiLinkRegex.exec(content)) !== null) {
-        links.push("notes/" + match[1] + ".md");
+        links.push(parentDir + match[1] + ".md");
     }
     while ((match = mdLinkRegex.exec(content)) !== null) {
-        links.push(match[1]);
+        links.push(parentDir + match[1] + ".md");
     }
     return links;
 }
@@ -64,9 +73,15 @@ function renderGraph(graphData) {
         if (params.nodes.length > 0) {
             let file = params.nodes[0];
             let content = await fetchMarkdownContent(file);
-            document.getElementById("viewer").innerHTML = marked.parse(content.replaceAll("[[", "").replaceAll("]]",""));
+            content = removeLinks(content);
+            document.getElementById("viewer").innerHTML = marked.parse(content);
         }
     });
+}
+
+function removeLinks (content) {
+    //todo
+    return content;
 }
 
 window.onload = loadGraph;
