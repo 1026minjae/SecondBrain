@@ -17,6 +17,8 @@ async function loadGraph() {
         }
     }
 
+    console.log (graphData);
+
     renderGraph(graphData);
 }
 
