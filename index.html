@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>WhatNeed?</title>
-    <meta charset="utf-8">
-    <script src="src/page_access.js"></script>
-    <link rel="stylesheet" href="src/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsidian Graph Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.0.12/lib/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.1/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div id="title-box">What is needed?</div>
-    </header>
-
-    <nav id="btn-box">
-    </nav>
-    
-    <div class="main-box">
-        <p id="contents">
-            이곳은 메인 텍스트가 위치하는 구역입니다. 좌측 바에서 버튼을 클릭하면 해당하는 내용이 표시됩니다.
-        </p>
+    <h1>Obsidian Graph Viewer</h1>
+    <div id="graph-container">
+        <div id="graph"></div>
+        <div id="viewer"><p>Select a node to view content.</p></div>
     </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
