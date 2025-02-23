@@ -1,3 +1,25 @@
+async function loadGraph() {
+    let files = await fetchFilesFromRepo();
+    let graphData = { nodes: [], edges: [] };
+    let fileMap = {};
+
+    for (let file of files) {
+        let content = await fetchMarkdownContent(file);
+        let links = extractLinks(content);
+
+        graphData.nodes.push({ id: file, label: file.replace("notes/", "").replace(".md", "") });
+        fileMap[file] = true;
+
+        for (let link of links) {
+            if (fileMap[link] || files.includes(link)) {
+                graphData.edges.push({ from: file, to: link });
+            }
+        }
+    }
+
+    renderGraph(graphData);
+}
+
 async function fetchFilesFromRepo() {
     try {
         const response = await fetch("./notes/index.json");
@@ -31,28 +53,6 @@ function extractLinks(content) {
         links.push(match[1]);
     }
     return links;
-}
-
-async function loadGraph() {
-    let files = await fetchFilesFromRepo();
-    let graphData = { nodes: [], edges: [] };
-    let fileMap = {};
-
-    for (let file of files) {
-        let content = await fetchMarkdownContent(file);
-        let links = extractLinks(content);
-
-        graphData.nodes.push({ id: file, label: file.replace("notes/", "").replace(".md", "") });
-        fileMap[file] = true;
-
-        for (let link of links) {
-            if (fileMap[link] || files.includes(link)) {
-                graphData.edges.push({ from: file, to: link });
-            }
-        }
-    }
-
-    renderGraph(graphData);
 }
 
 function renderGraph(graphData) {
