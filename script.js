@@ -1,5 +1,5 @@
 async function loadGraph() {
-    let files = await fetchFilesFromRepo();
+    let files = await fetchFilesFromNotes();
     let graphData = { nodes: [], edges: [] };
     let fileMap = {};
 
@@ -7,7 +7,7 @@ async function loadGraph() {
         let content = await fetchMarkdownContent(file);
         let links = extractLinks(content);
 
-        graphData.nodes.push({ id: file, label: file.replace("notes/", "").replace(".md", "") });
+        graphData.nodes.push({ id: file, label: file.substring(file.lastIndexOf("/") + 1).replace(".md", "") });
         fileMap[file] = true;
 
         for (let link of links) {
@@ -20,7 +20,7 @@ async function loadGraph() {
     renderGraph(graphData);
 }
 
-async function fetchFilesFromRepo() {
+async function fetchFilesFromNotes() {
     try {
         const response = await fetch("./notes/index.json");
         return await response.json();
@@ -64,7 +64,7 @@ function renderGraph(graphData) {
         if (params.nodes.length > 0) {
             let file = params.nodes[0];
             let content = await fetchMarkdownContent(file);
-            document.getElementById("viewer").innerHTML = marked.parse(content);
+            document.getElementById("viewer").innerHTML = marked.parse(content.replaceAll("[[", "").replaceAll("]]",""));
         }
     });
 }
