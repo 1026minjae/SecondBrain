@@ -4,7 +4,7 @@ import json
 def generate_index(directory="notes", output_file="notes/index.json"):
     try:
         # List all Markdown files in the directory
-        markdown_files = [f for f in os.listdir(directory) if f.endswith(".md")]
+        markdown_files = [("notes/" + f) for f in os.listdir(directory) if f.endswith(".md")]
 
         # Write the list to a JSON file
         with open(output_file, "w", encoding="utf-8") as f:

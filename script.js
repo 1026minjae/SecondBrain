@@ -4,10 +4,10 @@ async function loadGraph() {
     let fileMap = {};
 
     for (let file of files) {
-        let content = await fetchMarkdownContent("notes/" + file);
+        let content = await fetchMarkdownContent(file);
         let links = extractLinks(content);
 
-        graphData.nodes.push({ id: file, label: file.replace(".md", "") });
+        graphData.nodes.push({ id: file, label: file.replace("notes/", "").replace(".md", "") });
         fileMap[file] = true;
 
         for (let link of links) {
