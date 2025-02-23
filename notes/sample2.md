@@ -1,1 +1,2 @@
-This is sample2.
+This is sample2. 
+Link to [[sample]]
