@@ -7,7 +7,7 @@ async function loadGraph() {
         let content = await fetchMarkdownContent(file);
         let links = extractLinks(file, content);
 
-        graphData.nodes.push({ id: file, label: file.substring(file.lastIndexOf("/") + 1).replace(".md", ""), shape: "dot", size: 10, font: {size: 8}});
+        graphData.nodes.push({ id: file, label: file.substring(file.lastIndexOf("/") + 1).replace(".md", ""), shape: "dot", size: 5});
         fileMap[file] = true;
 
         for (let link of links) {
