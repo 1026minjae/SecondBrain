@@ -14,7 +14,7 @@ async function loadGraph() {
                                 size: 5, 
                                 font: {bold: true}
                             });
-        fileMap[filename] = true;
+        fileMap[filename] = null;
 
         for (let link of file.links) {
             if (!fileMap[link]) {
@@ -66,10 +66,14 @@ function renderGraph(graphData) {
     network.on("click", async function (params) {
         if (params.nodes.length > 0) {
             let file = params.nodes[0];
-            if (!fileMap[file]) return;
-            let content = await fetchMarkdownContent(file);
-            content = removeLinks(content);
-            document.getElementById("viewer").innerHTML = marked.parse(content);
+            if (file in fileMap) {
+                let content = fileMap[file];
+                if (content === null) {
+                    content = await fetchMarkdownContent(file);
+                    content = removeLinks(content);
+                }
+                document.getElementById("viewer").innerHTML = marked.parse(content);
+            }
         }
     });
 }
