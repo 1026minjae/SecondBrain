@@ -62,6 +62,7 @@ function renderGraph(graphData) {
     network.on("click", async function (params) {
         if (params.nodes.length > 0) {
             let file = params.nodes[0];
+            if (!fileMap[file]) return;
             let content = await fetchMarkdownContent(file);
             content = removeLinks(content);
             document.getElementById("viewer").innerHTML = marked.parse(content);
