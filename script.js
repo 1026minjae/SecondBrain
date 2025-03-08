@@ -80,8 +80,8 @@ function renderGraph(graphData) {
 }
 
 function removeLinks (content) {
-    let wiki_link_pattern = /\[\[[^|^\]]+[|]?([^\]])*\]\]/g;
-    let md_link_pattern = /(\[.*?\])\(.*?\)/g;
+    let wiki_link_pattern = /\[\[[^|^\]]+[|]?([^\]]*)\]\]/g;
+    let md_link_pattern = /\[(.*?)\]\(.*?\)/g;
 
     content = content.replaceAll (wiki_link_pattern, "$1");
     content = content.replaceAll (md_link_pattern, "$1");
