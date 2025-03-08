@@ -24,10 +24,14 @@ async function loadGraph() {
                                         color: {background: "#aaaaaa"}, 
                                         chosen: false,
                                         size: 5, 
-                                        font: {bold: true}
+                                        font: {color: "#aaaaaa"}
                                     });
             }
-            graphData.edges.push({ from: filename, to: link });
+            graphData.edges.push({  from: filename, 
+                                    to: link, 
+                                    color: {color: "#999999", opacity: 0.7},
+                                    chosen: false
+                                });
         }
     }
 
