@@ -10,7 +10,7 @@ async function loadGraph() {
         graphData.nodes.push({  id: filename, 
                                 label: filename.substring(filename.lastIndexOf("/") + 1).replace(".md", ""), 
                                 shape: "dot", 
-                                color: {background: "0x555555"}, 
+                                color: {background: "#555555"}, 
                                 size: 5, 
                                 font: {bold: true}
                             });
@@ -21,7 +21,7 @@ async function loadGraph() {
                 graphData.nodes.push({  id: link, 
                                         label: link.substring(link.lastIndexOf("/") + 1).replace(".md", ""), 
                                         shape: "dot", 
-                                        color: {background: "0xaaaaaa"}, 
+                                        color: {background: "#aaaaaa"}, 
                                         chosen: false,
                                         size: 5, 
                                         font: {bold: true}
