@@ -17,7 +17,7 @@ async function loadGraph() {
         fileMap[filename] = null;
 
         for (let link of file.links) {
-            if (!fileMap[link]) {
+            if (!(link in fileMap)) {
                 graphData.nodes.push({  id: link, 
                                         label: link.substring(link.lastIndexOf("/") + 1).replace(".md", ""), 
                                         shape: "dot", 
@@ -71,6 +71,7 @@ function renderGraph(graphData) {
                 if (content === null) {
                     content = await fetchMarkdownContent(file);
                     content = removeLinks(content);
+                    fileMap[file] = content;
                 }
                 document.getElementById("viewer").innerHTML = marked.parse(content);
             }
