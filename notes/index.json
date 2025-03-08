@@ -1,17 +1,78 @@
 [
-  "notes/ps.md",
-  "notes/Rust/Crate.md",
-  "notes/Rust/Box.md",
-  "notes/Rust/Trait.md",
-  "notes/Rust/Cargo.md",
-  "notes/\uc6b4\uc601\uccb4\uc81c/Microkernel.md",
-  "notes/\uc790\ub8cc\uad6c\uc870/Heap (data structure).md",
-  "notes/Pointer.md",
-  "notes/\uba54\ubaa8\ub9ac \uad6c\uc870/Heap (memory space).md",
-  "notes/\uba54\ubaa8\ub9ac \uad6c\uc870/Stack (memory space).md",
-  "notes/\ucef4\ud30c\uc77c\ub7ec/AST.md",
-  "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM IR.md",
-  "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM.md",
-  "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM\uacfc GCC\uc758 \ucc28\uc774.md",
-  "notes/Interface.md"
+  {
+    "filename": "notes/Interface.md",
+    "links": []
+  },
+  {
+    "filename": "notes/Pointer.md",
+    "links": []
+  },
+  {
+    "filename": "notes/ps.md",
+    "links": []
+  },
+  {
+    "filename": "notes/Rust/Box.md",
+    "links": [
+      "notes/Rust/Heap (memory space).md",
+      "notes/Rust/Pointer.md"
+    ]
+  },
+  {
+    "filename": "notes/Rust/Cargo.md",
+    "links": []
+  },
+  {
+    "filename": "notes/Rust/Crate.md",
+    "links": [
+      "notes/Rust/Cargo.md",
+      "notes/Rust/Cargo.md"
+    ]
+  },
+  {
+    "filename": "notes/Rust/Trait.md",
+    "links": [
+      "notes/Rust/Interface.md"
+    ]
+  },
+  {
+    "filename": "notes/\uba54\ubaa8\ub9ac \uad6c\uc870/Heap (memory space).md",
+    "links": []
+  },
+  {
+    "filename": "notes/\uba54\ubaa8\ub9ac \uad6c\uc870/Stack (memory space).md",
+    "links": []
+  },
+  {
+    "filename": "notes/\uc6b4\uc601\uccb4\uc81c/Microkernel.md",
+    "links": []
+  },
+  {
+    "filename": "notes/\uc790\ub8cc\uad6c\uc870/Heap (data structure).md",
+    "links": []
+  },
+  {
+    "filename": "notes/\ucef4\ud30c\uc77c\ub7ec/AST.md",
+    "links": []
+  },
+  {
+    "filename": "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM IR.md",
+    "links": []
+  },
+  {
+    "filename": "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM.md",
+    "links": [
+      "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM IR.md"
+    ]
+  },
+  {
+    "filename": "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM\uacfc GCC\uc758 \ucc28\uc774.md",
+    "links": [
+      "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM.md",
+      "notes/\ucef4\ud30c\uc77c\ub7ec/GCC.md",
+      "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM IR.md",
+      "notes/\ucef4\ud30c\uc77c\ub7ec/GIMPLE.md",
+      "notes/\ucef4\ud30c\uc77c\ub7ec/RTL.md"
+    ]
+  }
 ]
