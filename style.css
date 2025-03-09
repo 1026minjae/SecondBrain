@@ -1,15 +1,32 @@
+@font-face {
+    font-family: "D2 Coding";
+    font-weight: 400;
+    src: local("../font/D2Coding-Ver1.3.2-20180524.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "D2 Coding";
+    font-weight: 700;
+    src: local("../font/D2CodingBold-Ver1.3.2-20180524.ttf") format("truetype");
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: "D2 Coding";
     text-align: center;
     margin: 0;
 }
 
 @media all and (min-aspect-ratio: 1/1) {
+    h1 {
+        height: 5vh;
+        margin: 2.5vh 0 2.5vh 0;
+    }
+
     #graph-container {
         display: flex;
         justify-content: space-between;
         width: 100%;
-        height: 80vh;
+        height: 88vh;
     }
         
     #graph {
@@ -29,7 +46,8 @@ body {
 
 @media all and (max-aspect-ratio: 1/1) {
     h1 {
-        font-size: 5vw;
+        height: 3vh;
+        font-size: 2.5vh;
     }
 
     #graph-container {
@@ -39,7 +57,7 @@ body {
     #graph {
         width: 100%;
         height: 80vmin;
-        border-bottom: 2px solid #ccc;
+        border-top: 2px solid #ccc;
         border-bottom: 2px solid #ccc;
     }
     

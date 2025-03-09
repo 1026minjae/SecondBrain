@@ -66,7 +66,10 @@ async function fetchMarkdownContent(file) {
 
 function renderGraph(graphData) {
     let container = document.getElementById("graph");
-    let options = { physics: { enabled: true } };
+    let options = { interaction: { hideEdgesOnDrag: true, hideEdgesOnZoom: true, hover: true },
+                    layout: { improvedLayout: false },
+                    nodes: { font: "D2 Coding" },
+                    physics: { enabled: true } };
     let network = new vis.Network(container, graphData, options);
 
     network.on("click", async function (params) {
