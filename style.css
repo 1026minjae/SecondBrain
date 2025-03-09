@@ -1,13 +1,13 @@
 @font-face {
     font-family: "D2 Coding";
     font-weight: 400;
-    src: local("../font/D2Coding-Ver1.3.2-20180524.ttf") format("truetype");
+    src: url("./font/D2Coding-Ver1.3.2-20180524.woff") format("woff");
 }
 
 @font-face {
     font-family: "D2 Coding";
     font-weight: 700;
-    src: local("../font/D2CodingBold-Ver1.3.2-20180524.ttf") format("truetype");
+    src: url("./font/D2CodingBold-Ver1.3.2-20180524.woff") format("woff");
 }
 
 body {
