@@ -1,5 +1,22 @@
 mdFileContentMap = {}
 
+isDarkmode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+colorTable = {
+                "existing_node": { 
+                                    backgroundColor: (isDarkmode ? "#aaaaaa" : "#555555"),
+                                    borderColor: "#999999",
+                                    fontColor: (isDarkmode ? "#aaaaaa" : "#555555")
+                                },
+                "nonexisting_node": {
+                                    backgroundColor: (isDarkmode ? "#555555" : "#aaaaaa"),
+                                    borderColor: "#999999",
+                                    fontColor: (isDarkmode ? "#555555" : "#aaaaaa")
+                                },
+                "edge": {
+                        color: "#999999"
+                    }
+            };
+
 async function loadGraph() {
     let mdFileList = await fetchMdFileListFromDisk();
     let graphData = { nodes: [], edges: [] };
@@ -10,32 +27,53 @@ async function loadGraph() {
         graphData.nodes.push({  id: filename, 
                                 label: filename.substring(filename.lastIndexOf("/") + 1).replace(".md", ""), 
                                 shape: "dot", 
-                                color: {background: "#555555", border: "#999999"}, 
+                                color: {
+                                        background: colorTable["existing_node"].backgroundColor, 
+                                        border: colorTable["existing_node"].borderColor 
+                                    }, 
                                 size: 5, 
-                                font: {bold: true}
+                                font: {
+                                        color: colorTable["existing_node"].fontColor, 
+                                        bold: true 
+                                    }
                             });
         
         mdFileContentMap[filename] = null;
 
         for (let link of file.links_to_exist) {
-            graphData.edges.push({  from: filename, 
+            graphData.edges.push({  
+                                    from: filename, 
                                     to: link, 
-                                    color: {color: "#999999", opacity: 0.7},
+                                    color: {
+                                            color: colorTable["edge"].color, 
+                                            opacity: 0.7
+                                        },
                                     chosen: false
                                 });
         }
         for (let link of file.links_to_nonexist) {
-            graphData.nodes.push({  id: link, 
+            graphData.nodes.push({  
+                                    id: link, 
                                     label: link, 
                                     shape: "dot", 
-                                    color: {background: "#aaaaaa", border: "#999999"}, 
+                                    color: {
+                                            background: colorTable["nonexisting_node"].backgroundColor, 
+                                            border: colorTable["nonexisting_node"].borderColor
+                                        }, 
                                     chosen: false,
                                     size: 5, 
-                                    font: {color: "#aaaaaa"}
+                                    font: {
+                                            color: colorTable["nonexisting_node"].fontColor,
+                                            bold: false
+                                        }
                                 });
-            graphData.edges.push({  from: filename, 
+            graphData.edges.push({  
+                                    from: filename, 
                                     to: link, 
-                                    color: {color: "#999999", opacity: 0.7},
+                                    color: {
+                                            color: colorTable["edge"].color, 
+                                            opacity: 0.7
+                                        },
                                     chosen: false
                                 });
         }
