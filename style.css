@@ -14,6 +14,25 @@ body {
     font-family: "D2 Coding";
     text-align: center;
     margin: 0;
+    line-height: 1.5;
+}
+
+table {
+    border: 1px solid #808080;
+}
+
+@media all and (prefers-color-scheme: dark) {
+    body {
+        background-color: #111111;
+        color: #eeeeee;
+    }
+}
+
+@media all and (prefers-color-scheme: light) {
+    body {
+        background-color: #eeeeee;
+        color: #111111;
+    }
 }
 
 @media all and (min-aspect-ratio: 1/1) {
@@ -48,6 +67,14 @@ body {
     h1 {
         height: 3vh;
         font-size: 2.5vh;
+    }
+
+    ol {
+        margin-left: 4vw;
+    }
+
+    ul {
+        margin-left: 4vw;
     }
 
     #graph-container {
