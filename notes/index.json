@@ -1,78 +1,94 @@
 [
   {
-    "filename": "notes/Interface.md",
-    "links": []
+    "name": "notes/Interface.md",
+    "links_to_exist": [],
+    "links_to_nonexist": []
   },
   {
-    "filename": "notes/Pointer.md",
-    "links": []
+    "name": "notes/Pointer.md",
+    "links_to_exist": [],
+    "links_to_nonexist": []
   },
   {
-    "filename": "notes/ps.md",
-    "links": []
+    "name": "notes/ps.md",
+    "links_to_exist": [],
+    "links_to_nonexist": []
   },
   {
-    "filename": "notes/Rust/Box.md",
-    "links": [
-      "notes/Rust/Heap (memory space).md",
-      "notes/Rust/Pointer.md"
-    ]
+    "name": "notes/Rust/Box.md",
+    "links_to_exist": [
+      "notes/\uba54\ubaa8\ub9ac \uad6c\uc870/Heap (memory space).md",
+      "notes/Pointer.md"
+    ],
+    "links_to_nonexist": []
   },
   {
-    "filename": "notes/Rust/Cargo.md",
-    "links": []
+    "name": "notes/Rust/Cargo.md",
+    "links_to_exist": [],
+    "links_to_nonexist": []
   },
   {
-    "filename": "notes/Rust/Crate.md",
-    "links": [
+    "name": "notes/Rust/Crate.md",
+    "links_to_exist": [
       "notes/Rust/Cargo.md",
       "notes/Rust/Cargo.md"
-    ]
+    ],
+    "links_to_nonexist": []
   },
   {
-    "filename": "notes/Rust/Trait.md",
-    "links": [
-      "notes/Rust/Interface.md"
-    ]
+    "name": "notes/Rust/Trait.md",
+    "links_to_exist": [
+      "notes/Interface.md"
+    ],
+    "links_to_nonexist": []
   },
   {
-    "filename": "notes/\uba54\ubaa8\ub9ac \uad6c\uc870/Heap (memory space).md",
-    "links": []
+    "name": "notes/\uba54\ubaa8\ub9ac \uad6c\uc870/Heap (memory space).md",
+    "links_to_exist": [],
+    "links_to_nonexist": []
   },
   {
-    "filename": "notes/\uba54\ubaa8\ub9ac \uad6c\uc870/Stack (memory space).md",
-    "links": []
+    "name": "notes/\uba54\ubaa8\ub9ac \uad6c\uc870/Stack (memory space).md",
+    "links_to_exist": [],
+    "links_to_nonexist": []
   },
   {
-    "filename": "notes/\uc6b4\uc601\uccb4\uc81c/Microkernel.md",
-    "links": []
+    "name": "notes/\uc6b4\uc601\uccb4\uc81c/Microkernel.md",
+    "links_to_exist": [],
+    "links_to_nonexist": []
   },
   {
-    "filename": "notes/\uc790\ub8cc\uad6c\uc870/Heap (data structure).md",
-    "links": []
+    "name": "notes/\uc790\ub8cc\uad6c\uc870/Heap (data structure).md",
+    "links_to_exist": [],
+    "links_to_nonexist": []
   },
   {
-    "filename": "notes/\ucef4\ud30c\uc77c\ub7ec/AST.md",
-    "links": []
+    "name": "notes/\ucef4\ud30c\uc77c\ub7ec/AST.md",
+    "links_to_exist": [],
+    "links_to_nonexist": []
   },
   {
-    "filename": "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM IR.md",
-    "links": []
+    "name": "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM IR.md",
+    "links_to_exist": [],
+    "links_to_nonexist": []
   },
   {
-    "filename": "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM.md",
-    "links": [
+    "name": "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM.md",
+    "links_to_exist": [
       "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM IR.md"
-    ]
+    ],
+    "links_to_nonexist": []
   },
   {
-    "filename": "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM\uacfc GCC\uc758 \ucc28\uc774.md",
-    "links": [
+    "name": "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM\uacfc GCC\uc758 \ucc28\uc774.md",
+    "links_to_exist": [
       "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM.md",
-      "notes/\ucef4\ud30c\uc77c\ub7ec/GCC.md",
-      "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM IR.md",
-      "notes/\ucef4\ud30c\uc77c\ub7ec/GIMPLE.md",
-      "notes/\ucef4\ud30c\uc77c\ub7ec/RTL.md"
+      "notes/\ucef4\ud30c\uc77c\ub7ec/LLVM IR.md"
+    ],
+    "links_to_nonexist": [
+      "GCC (Non-exist)",
+      "GIMPLE (Non-exist)",
+      "RTL (Non-exist)"
     ]
   }
 ]

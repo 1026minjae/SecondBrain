@@ -1,11 +1,11 @@
-let fileMap = {};
+mdFileContentMap = {}
 
 async function loadGraph() {
-    let files = await fetchFilesFromNotes();
+    let mdFileList = await fetchMdFileListFromDisk();
     let graphData = { nodes: [], edges: [] };
 
-    for (let file of files) {
-        let filename = file.filename;
+    for (let file of mdFileList) {
+        let filename = file.name;
 
         graphData.nodes.push({  id: filename, 
                                 label: filename.substring(filename.lastIndexOf("/") + 1).replace(".md", ""), 
@@ -14,19 +14,25 @@ async function loadGraph() {
                                 size: 5, 
                                 font: {bold: true}
                             });
-        fileMap[filename] = null;
+        
+        mdFileContentMap[file] = null;
 
-        for (let link of file.links) {
-            if (!(link in fileMap)) {
-                graphData.nodes.push({  id: link, 
-                                        label: link.substring(link.lastIndexOf("/") + 1).replace(".md", ""), 
-                                        shape: "dot", 
-                                        color: {background: "#aaaaaa"}, 
-                                        chosen: false,
-                                        size: 5, 
-                                        font: {color: "#aaaaaa"}
-                                    });
-            }
+        for (let link of file.links_to_exist) {
+            graphData.edges.push({  from: filename, 
+                                    to: link, 
+                                    color: {color: "#999999", opacity: 0.7},
+                                    chosen: false
+                                });
+        }
+        for (let link of file.links_to_nonexist) {
+            graphData.nodes.push({  id: link, 
+                                    label: link, 
+                                    shape: "dot", 
+                                    color: {background: "#aaaaaa"}, 
+                                    chosen: false,
+                                    size: 5, 
+                                    font: {color: "#aaaaaa"}
+                                });
             graphData.edges.push({  from: filename, 
                                     to: link, 
                                     color: {color: "#999999", opacity: 0.7},
@@ -38,7 +44,7 @@ async function loadGraph() {
     renderGraph(graphData);
 }
 
-async function fetchFilesFromNotes() {
+async function fetchMdFileListFromDisk() {
     try {
         const response = await fetch("./notes/index.json");
         return await response.json();
@@ -66,13 +72,16 @@ function renderGraph(graphData) {
     network.on("click", async function (params) {
         if (params.nodes.length > 0) {
             let file = params.nodes[0];
-            if (file in fileMap) {
-                let content = fileMap[file];
+
+            if (file in mdFileContentMap) {
+                let content = mdFileContentMap[file];
+            
                 if (content === null) {
                     content = await fetchMarkdownContent(file);
                     content = removeLinks(content);
-                    fileMap[file] = content;
+                    mdFileContentMap[file] = content;
                 }
+            
                 document.getElementById("viewer").innerHTML = marked.parse(content);
             }
         }
