@@ -4,30 +4,28 @@ body {
     margin: 0;
 }
 
-@media all and (min-width: 1280px) {
-    #graph-container {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        height: 80vh;
-    }
+#graph-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 80vh;
+}
     
-    #graph {
-        flex: 1;
-        height: 100%;
-        border-right: 2px solid #ccc;
-    }
+#graph {
+    flex: 1;
+    height: 100%;
+    border-right: 2px solid #ccc;
+}
     
-    #viewer {
-        flex: 1;
-        height: 100%;
-        overflow-y: auto;
-        padding: 10px;
-        text-align: left;
-    }
+#viewer {
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    text-align: left;
 }
 
-@media all and (max-width: 1279px) {
+@media all and (max-aspect-ratio: 1/1) {
     h1 {
         font-size: 5vw;
     }
@@ -38,14 +36,15 @@ body {
     
     #graph {
         width: 100%;
-        height: 100vw;
+        height: 80vmin;
+        border-bottom: 2px solid #ccc;
         border-bottom: 2px solid #ccc;
     }
     
     #viewer {
         font-size: 3vw;
         height: auto;
-        padding: 10px;
+        padding: 0 3vmin 0 3vmin;
         text-align: left;
     }
 }
