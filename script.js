@@ -10,12 +10,12 @@ async function loadGraph() {
         graphData.nodes.push({  id: filename, 
                                 label: filename.substring(filename.lastIndexOf("/") + 1).replace(".md", ""), 
                                 shape: "dot", 
-                                color: {background: "#555555"}, 
+                                color: {background: "#555555", border: "#999999"}, 
                                 size: 5, 
                                 font: {bold: true}
                             });
         
-        mdFileContentMap[file] = null;
+        mdFileContentMap[filename] = null;
 
         for (let link of file.links_to_exist) {
             graphData.edges.push({  from: filename, 
@@ -28,7 +28,7 @@ async function loadGraph() {
             graphData.nodes.push({  id: link, 
                                     label: link, 
                                     shape: "dot", 
-                                    color: {background: "#aaaaaa"}, 
+                                    color: {background: "#aaaaaa", border: "#999999"}, 
                                     chosen: false,
                                     size: 5, 
                                     font: {color: "#aaaaaa"}
